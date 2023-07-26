@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 jackal_joint_publisher:
   type: "joint_state_controller/JointStateController"
   publish_rate: 50
@@ -38,3 +39,28 @@ jackal_velocity_controller:
       max_acceleration       : 25.0   # rad/s^2
 
 
+=======
+jackal_state_controller:
+  type: "joint_state_controller/JointStateController"
+  publish_rate: 50
+
+jackal_effort_front_left:
+  type: effort_controllers/JointEffortController
+  joint: front_left_wheel
+  pid: {p: 5, i: 2, d: 3}
+
+jackal_effort_front_right:
+  type: effort_controllers/JointEffortController
+  joint: front_right_wheel
+  pid: {p: 5, i: 2, d: 3}
+
+jackal_effort_rear_left:
+  type: effort_controllers/JointEffortController
+  joint: rear_left_wheel
+  pid: {p: 5, i: 2, d: 3}
+
+jackal_effort_rear_right:
+  type: effort_controllers/JointEffortController
+  joint: rear_right_wheel
+  pid: {p: 5, i: 2, d: 3}
+>>>>>>> fa7b39e... initial commit of jackal files that are currently in use

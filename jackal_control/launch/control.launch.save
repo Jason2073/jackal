@@ -1,13 +1,11 @@
-
-<?xml version="1.0" encoding="ISO-8859-15"?>
 <launch>
 
-  <arg name="enable_ekf" default="$(optenv ENABLE_EKF false)"/>
+  <arg name="enable_ekf" default="$(optenv ENABLE_EKF true)"/>
 
   <rosparam command="load" file="$(find jackal_control)/config/control.yaml" />
 
-  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
-        args="jackal_effort_front_left jackal_effort_front_right jackal_effort_rear_left jackal_effort_rear_right jackal_state_controller" />
+  <node name="controller_spawner" pkg="controller_manager" type="spawner"
+        args="jackal_joint_publisher jackal_effort_front_left jackal_effort_front_right jackal_effort_rear_left jackal_effort_rear_right" />
 
   <group if="$(arg enable_ekf)" >
     <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization">
@@ -30,14 +28,11 @@
     </group>
   </group>
 
-<<<<<<< HEAD
   <node pkg="twist_mux" type="twist_mux" name="twist_mux">
     <rosparam command="load" file="$(find jackal_control)/config/twist_mux.yaml" />
     <remap from="cmd_vel_out" to="jackal_velocity_controller/cmd_vel"/>
   </node>
 
-=======
->>>>>>> fa7b39e... initial commit of jackal files that are currently in use
   <group if="$(optenv JACKAL_CONTROL_EXTRAS 0)" >
     <rosparam command="load" file="$(env JACKAL_CONTROL_EXTRAS_PATH)" subst_value="true" />
   </group>

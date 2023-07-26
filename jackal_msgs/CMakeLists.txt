@@ -12,6 +12,7 @@ add_message_files(
   DriveFeedback.msg
   Feedback.msg
   Status.msg
+  PWMControl.msg
 )
 
 generate_messages(
