@@ -4,6 +4,9 @@
 # Standard metadata for higher-level stamped data types.
 Header header
 
+#controller 0 for velocity, 1 for energy_based 
+int8 controller
+
 # Desired torques 
 float32 left_desired_torque
 float32 right_desired_torque
