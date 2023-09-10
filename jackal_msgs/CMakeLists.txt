@@ -6,6 +6,7 @@ find_package(catkin REQUIRED COMPONENTS
   message_generation
   nav_msgs
   sensor_msgs
+  geometry_msgs
 )
 
 add_message_files(
@@ -17,6 +18,7 @@ add_message_files(
   PWMControl.msg
   ERL.msg 
   ERL2.msg
+  TrajectoryState.msg
 )
 
 generate_messages(
@@ -24,6 +26,7 @@ generate_messages(
   std_msgs
   nav_msgs
   sensor_msgs
+  geometry_msgs
 )
 
 catkin_package(CATKIN_DEPENDS std_msgs message_runtime)
